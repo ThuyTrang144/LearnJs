@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TodoList</title>
+    <link rel="stylesheet" href="styleTodolist.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <section class="todoApp">
+        <header class="header">
+            <h1>todos</h1>
+            <input type="text" class="new-todo" autofocus placeholder="What needs to be done?">
+        </header>
+            <ul class="todo-list">
+                <!-- <li class="view" data-id="121212">
+                    <input type="checkbox" class="tonggle">
+                    <label class="text-todo"></label>
+                    <button class="delete-todo">x</button>  
+                    <input class="todo-editing" value=""> 
+                </li>  -->
+            </ul> 
+    </section>
+    <form class="form">
+        <div>
+          <button class="all" value="all">All</button>
+          <button class="active" value="active">Active</button> 
+          <button class="completed" value="completed">Completed</button>
+        </div>
+     </form>
+     <script id="edit-todo" type="text/x-handlebars">
+           
+     </script>
+     <script src="./js/models/todo.js"></script>
+     <script src="./js/models/todoList.js"></script>
+     <script src="./js/views/todoView.js"></script>
+     <script src="./js/views/todoListView.js"></script>
+     <script src="./js/app.js"></script>
+    
+</body>
+</html>
+  <!-- <!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>TODO List</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+      <form id="selectedview">
+        <div>
+          <input id="active" type="radio" value="active" name="sorttodo" />
+          <label class="active">Active</label>
+          <input id="complete" type="radio" value="complete" name="sorttodo"  />
+          <label class="complete">Complete</label>
+          <input id="all" type="radio" value="all" name="sorttodo"  selected="true" />
+          <label class="all">All</label>
+        </div>
+      </form>
+      <input id="input" type="text">
+      <div id="display"></div>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
+        </script>
+        <script src="index.js"></script>
+    </body>
+</html>  -->
