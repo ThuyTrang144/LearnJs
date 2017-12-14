@@ -1,4 +1,4 @@
-var TodoList = function() {
+app.models.TodoList = function() {
   this.todos = [];
   // delete
   // add
@@ -8,7 +8,7 @@ var TodoList = function() {
   // renderTodos
 }
 
-TodoList.prototype.deleteTodo = function(id) {
+app.models.TodoList.prototype.deleteTodo = function(id) {
   var indexDeleteTodo = '';
   this.todos.find(function(todo, index) {
      indexDeleteTodo = index
@@ -17,6 +17,6 @@ TodoList.prototype.deleteTodo = function(id) {
   this.todos.splice(indexDeleteTodo, 1)
 }
 
-TodoList.prototype.addTodo = function(todo) {
+app.models.TodoList.prototype.addTodo = function(todo) {
   this.todos.push(todo);
 } 

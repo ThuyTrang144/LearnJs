@@ -1,53 +1,51 @@
-var TodoListView = function() {
-  this.todoList = new TodoList();
-  this.ENTER = 13;
+app.views.TodoListView = function() {
+  // this.ENTER = 13;
   this.handleEvent('addTodo');
-  console.log('alo')
+  this.handleEvent('editTodo', this.editTodo);
 }
 
-// TodoListView.prototype.renderTodos = function(todos) {
-//   for(todos.length) {
-//     // $(ele).append(todo[i])
-//     $('.todo-list').append(
-//       '<li data-id='+ todo[i].id +'>' +
-//         '<input/>' +
-//         '<lable>' + todo[i].text + '</label>'
-//         '<button>' + 'x' + '</button>'
-//       '</li>')
-//   }
-// }
-
-TodoListView.prototype.getDeleteTodo = function(self) {
+app.views.TodoListView.prototype.getDeleteTodo = function(self) {
   var id = self.attr('data-id'); // attribute
 }
 
-TodoListView.prototype.deleteTodo = function(id) {
+app.views.TodoListView.prototype.deleteTodo = function(id) {
   var todoList = getTodoList()
   todoList.deleteTodo(id);
 
 }
 
-TodoListView.prototype.addTodo = function(newTodo) {
-  this.todoList.addTodo(newTodo);
+app.views.TodoListView.prototype.addTodo = function(newTodo) {
+  app.todoList.addTodo(newTodo);
   var labelTodo = '<li class="view" data-id=' + newTodo.id + '>' + 
                     '<input type="checkbox" class="tonggle">' + 
                     '<label class="text-todo">' + newTodo.text + '</label>' +
-                    '<button class="delete-todo">x</button>' +   
                     '<input class="todo-editing" value=' + newTodo.text + '>' +
+                    '<button class="delete-todo">x</button>' +   
                   '</li> ';
   $('.todo-list').prepend(labelTodo);
   $('.todo-editing').hide();
-  $('.delete-todo').hide();
+  $('.delete-todo').show();
   $('.new-todo').val('');
 }
 
-TodoListView.prototype.handleEvent = function(event, handler) {
+app.views.TodoListView.prototype.editTodo = function(currentTodo) {
+  var index = null;
+  console.log('this.todoList', todoList);
+  app.todoList.todos.find(function(todo, i) {
+       index = i;
+       return todo.id === currentTodo.id;
+  });
+  app.todoList.todos[index] === currentTodo;
+  console.log(todoList);
+}
+
+app.views.TodoListView.prototype.handleEvent = function(event, handler) {
   var self = this;
   switch (event) {
     case 'addTodo':
       $('.header').on('keypress', '.new-todo', function(e) {
-        if(e.keyCode === self.ENTER) {
-          var newTodo = new Todo($('.new-todo').val());
+        if(e.keyCode === app.constant.ENTER) {
+          var newTodo = new app.models.Todo($('.new-todo').val());
           self.addTodo(newTodo);  
         }
       })      
@@ -57,34 +55,3 @@ TodoListView.prototype.handleEvent = function(event, handler) {
       break;
   }
 }
-// $(document).ready(function () {
-//   var todoList = new TodoList();
-  
-//     var newTodo;
-//     var header= $('.header');
-//     header.on('keypress', '.new-todo', function(e) {
-//          if(e.keyCode == 13) {
-//              newTodo = $('.new-todo').val();
-
-//              todoList.push(newTodo);
-//              console.log($('.new-todo').val());
-//              x = x + '<div><input type="checkbox">' + newTodo + '</div>';
-//              $('.display').html(x);
-//              $('.new-todo').val("");
-//          }
-//     })
-
-
-
-
-// })
-
-// TodoListView.prototype.renderTodos = function(todos) {
-//   for(todos.length) {
-//      $(ele).append(todo[i])
-//     $('.todo-list').append(
-//       '<li data-id='+ todo[i].id +'>' + '<lable>' + todo[i].text + '</label>'
-//         '<button>' + 'x' + '</button>'
-//       '</li>')
-//   }
-// }

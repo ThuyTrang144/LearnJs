@@ -32,22 +32,7 @@ body {
   border: 1px solid white;
   border-bottom: 1px solid  #e6ccccde;
 }
-/* .toggle-all {
-	 transform: rotate(90deg); /*dau mui ten huong xuong */
-	/* -webkit-appearance: none; /*bo vien xung quang button*/
-    /* left: -12px;
-    width: 60px;
-    height: 34px;
-    text-align: center;
-    border: none
-}
-.toggle-all {
-	content: '❯';
-    font-size: 22px;
-    color: #e6e6e6;
-	padding: 10px 27px 10px 27px;
-	z-index: 1;
-} */ 
+
 .todoApp input::-webkit-input-placeholder {
 	font-style: italic;
 	font-weight: 300;
@@ -79,6 +64,17 @@ body {
 	background-color: white;
 }
 .todo-list li {
-	border-bottom: 1px solid  #ece7e7de;
+	border-bottom: 1px solid #ece7e7de;
 	padding: 10px;
+}
+.delete-todo {
+	background: white;
+	border: none;
+	color: white;
+}
+/* .todolist li:hover .delete-todo {
+	display: block;
+} */
+.todo-list li .delete-todo :hover {
+	color: red;
 }
